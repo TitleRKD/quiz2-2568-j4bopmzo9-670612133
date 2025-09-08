@@ -6,7 +6,7 @@ import {
   ActionIcon,
 } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
-import { IconSun, IconMoon } from "@tabler/icons-react";
+import { IconSun, IconMoon, IconApple, IconAppleFilled } from "@tabler/icons-react";
 
 interface HeaderComponentProps {
   opened: boolean;
@@ -25,6 +25,17 @@ export default function HeaderComponent({
   
   return (
     <Group p="md" justify="space-between">
+      <Group gap={1}>
+        <ActionIcon
+          variant="filled"
+          color={isDark ? "yellow" : "blue"}
+          onClick={toggleColorScheme}
+          size="lg"
+          aria-label={isDark ? "Light mode" : "Dark mode"}
+        >
+          {isDark ? <IconApple size={20} /> : <IconAppleFilled size={20} />}
+        </ActionIcon>
+      </Group>
       <Group>
         {isMobile && (
           <Burger
